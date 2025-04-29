@@ -36,5 +36,5 @@ const NewsSlider = () => {
     </div>
   )
 }
-
+ 
 export default NewsSlider 
