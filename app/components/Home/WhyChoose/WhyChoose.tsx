@@ -3,12 +3,12 @@ import WhyChooseCard from './WhyChooseCard'
 
 const WhyChoose = () => {
   return (
-    <div className='py-16 bg-gray-50'>
+    <div className='py-8 md:py-12 bg-gray-50'>
         <div className='container mx-auto px-4'>
-            <h2 className='text-3xl md:text-4xl font-bold text-black text-center mb-12'>
+            <h2 className='text-3xl md:text-4xl font-bold text-black text-center mb-8 md:mb-12'>
                 Why you choose this application
             </h2>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
+            <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 max-w-5xl mx-auto'>
                 <div className='bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow'> 
                     <WhyChooseCard 
                         image={'/images/i1.png'} 

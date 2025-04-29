@@ -1,33 +1,29 @@
-import Link from 'next/link'
+'use client'
 import React from 'react'
-import navLinks from '../../../constant/Constant'
-import { IoMdClose } from 'react-icons/io'
-import { CgClose } from 'react-icons/cg'
+import Link from 'next/link'
+import { navLinks } from '../../../constant/Constant'
+import { IoClose } from 'react-icons/io5'
 
 type MobileNavbarProps = {
-  showMobileNavbar: boolean
-  handleCloseMobileNavbar: () => void
+  closeMobileNavbar: () => void
 }
 
-const MobileNavbar = ({showMobileNavbar, handleCloseMobileNavbar}: MobileNavbarProps) => {
-  const navOpen = showMobileNavbar ? "translate-x-0" : "-translate-x-full"
-
-  {/* Mobile Navbar */} 
+const MobileNavbar = ({closeMobileNavbar}: MobileNavbarProps) => {
   return (
-   <>
-    <div 
-      className={`fixed inset-0 transform transition-all duration-500 z-[10000] bg-black opacity-70 w-full h-screen ${navOpen}`}
-      onClick={handleCloseMobileNavbar}
-    ></div>
-    <div className={`text-white fixed justify-center flex flex-col h-full transform transition-all duration-500 delay-300 w-[80%] sm:w-[60%] bg-indigo-900 space-y-6 z-[10006] ${navOpen}`}>
-       { navLinks.map((link, index) => ( 
-            <Link href={link.url} key={index}><p className='nav__link text-white text-[20px] ml-12 border-b-2 border-white pb-2 sm:text-[25px]'>{link.name}</p></Link>
-        ))
-       }
-        {/* Close Button */} 
-        <CgClose onClick={handleCloseMobileNavbar} className='absolute top-10 right-10 text-white text-2xl cursor-pointer'/>
+    <div className='fixed inset-0 bg-black bg-opacity-50 z-50 xl:hidden'>
+      <div className='fixed right-0 top-0 h-full w-[300px] bg-white p-8'>
+        <div className='flex justify-end'>
+          <IoClose onClick={closeMobileNavbar} className='w-8 h-8 cursor-pointer text-black'/>
+        </div>
+        <div className='mt-8 flex flex-col space-y-6'>
+          {navLinks.map((link) => (
+            <Link key={link.id} href={link.url} onClick={closeMobileNavbar}>
+              <p className='text-lg font-medium text-black hover:text-blue-500 transition-colors'>{link.name}</p>
+            </Link>
+          ))}
+        </div>
+      </div>
     </div>
-   </>
   )
 }
 
