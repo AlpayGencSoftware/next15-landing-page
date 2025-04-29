@@ -1,5 +1,8 @@
+'use client'
 import React from 'react'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
+import NewsSlider from './NewsSlider'
 
 const Hero = () => {
   return (
@@ -7,24 +10,45 @@ const Hero = () => {
         <div className='container mx-auto px-4'>
            <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
             {/* Sol Taraf - İçerik */}
-            <div className='space-y-8'>
-              <div className='inline-flex py-2 px-2 rounded-full shadow-md bg-white'>
-                  <div className='px-3 py-1 rounded-full bg-blue-700 text-sm md:text-base text-white'>News</div>
-                  <p className='ml-3 text-sm md:text-base font-medium text-black'>
-                      Get 20% off on your first order
-                  </p>
-              </div>
+            <motion.div 
+              className='space-y-8'
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                <NewsSlider />
+              </motion.div>
               
-              <h1 className='text-4xl sm:text-5xl md:text-6xl font-bold text-black leading-tight'>
+              <motion.h1 
+                className='text-4xl sm:text-5xl md:text-6xl font-bold text-black leading-tight'
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
                   The best products for your home
-              </h1>
+              </motion.h1>
               
-              <p className='text-lg md:text-xl text-gray-600 max-w-xl'>
+              <motion.p 
+                className='text-lg md:text-xl text-gray-600 max-w-xl'
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+              >
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, illum pariatur. Incidunt saepe quisquam dolor dolorum autem ut itaque sed? Quasi et ratione aspernatur saepe officiis architecto earum fuga hic!
-              </p>
+              </motion.p>
               
-              <div className='flex items-center space-x-6 pt-4'>
+              <motion.div 
+                className='flex items-center space-x-6 pt-4'
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+              >
                   <Image 
                     src={'/images/gp.png'} 
                     alt='Google Play' 
@@ -39,11 +63,16 @@ const Hero = () => {
                     height={42} 
                     className='object-contain'
                   />
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
             
             {/* Sağ Taraf - Hero Görseli */}
-            <div className='hidden lg:flex justify-center items-center'>
+            <motion.div 
+              className='hidden lg:flex justify-center items-center'
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
                 <Image 
                   src={'/images/hero.png'} 
                   alt='Hero Image' 
@@ -52,7 +81,7 @@ const Hero = () => {
                   className='object-contain'
                   priority
                 />   
-            </div>
+            </motion.div>
            </div>
         </div>
     </div>
