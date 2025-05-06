@@ -28,7 +28,7 @@ function WhyChooseCard({image, title, description, linkText, linkUrl}: WhyChoose
       <Link 
         href={linkUrl} 
         className='text-blue-500 mt-4 text-center group-hover:text-blue-600 transition-all duration-300 cursor-pointer flex items-center gap-1'
-      > 
+      >
         {linkText} 
         <CgArrowRight className='inline-block transform transition-transform duration-300 group-hover:translate-x-1'/>
       </Link>
